@@ -64,6 +64,10 @@
                 [self fizzbuzz:entity];
             }
         }];
+    } else {
+        //Completed
+        self.number.text = [NSString stringWithFormat:@"%@",entity.properties[@"number"]];
+        self.value.text = entity.properties[@"value"];
     }
 }
 

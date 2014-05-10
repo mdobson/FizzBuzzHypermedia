@@ -10,4 +10,7 @@
 
 @interface MSDViewController : UIViewController
 
+@property IBOutlet UILabel *number;
+@property IBOutlet UILabel *value;
+
 @end
