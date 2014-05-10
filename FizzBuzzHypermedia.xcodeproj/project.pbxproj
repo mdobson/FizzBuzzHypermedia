@@ -21,6 +21,7 @@
 		F5D11761191E843700CF7875 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5D11743191E843700CF7875 /* UIKit.framework */; };
 		F5D11769191E843700CF7875 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F5D11767191E843700CF7875 /* InfoPlist.strings */; };
 		F5D1176B191E843700CF7875 /* FizzBuzzHypermediaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D1176A191E843700CF7875 /* FizzBuzzHypermediaTests.m */; };
+		F5D1177F191E847F00CF7875 /* libSHMKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5D1177A191E846E00CF7875 /* libSHMKit.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,6 +31,27 @@
 			proxyType = 1;
 			remoteGlobalIDString = F5D1173B191E843700CF7875;
 			remoteInfo = FizzBuzzHypermedia;
+		};
+		F5D11779191E846E00CF7875 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F5D11774191E846E00CF7875 /* SHMKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F5E5C7F5189DE02600602FB0;
+			remoteInfo = SHMKit;
+		};
+		F5D1177B191E846E00CF7875 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F5D11774191E846E00CF7875 /* SHMKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F5E5C805189DE02700602FB0;
+			remoteInfo = SHMKitTests;
+		};
+		F5D1177D191E847700CF7875 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F5D11774191E846E00CF7875 /* SHMKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F5E5C7F4189DE02600602FB0;
+			remoteInfo = SHMKit;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -53,6 +75,7 @@
 		F5D11766191E843700CF7875 /* FizzBuzzHypermediaTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FizzBuzzHypermediaTests-Info.plist"; sourceTree = "<group>"; };
 		F5D11768191E843700CF7875 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F5D1176A191E843700CF7875 /* FizzBuzzHypermediaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FizzBuzzHypermediaTests.m; sourceTree = "<group>"; };
+		F5D11774191E846E00CF7875 /* SHMKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SHMKit.xcodeproj; path = vendor/SHMKit/SHMKit.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5D1177F191E847F00CF7875 /* libSHMKit.a in Frameworks */,
 				F5D11742191E843700CF7875 /* CoreGraphics.framework in Frameworks */,
 				F5D11744191E843700CF7875 /* UIKit.framework in Frameworks */,
 				F5D11740191E843700CF7875 /* Foundation.framework in Frameworks */,
@@ -82,6 +106,7 @@
 		F5D11733191E843700CF7875 = {
 			isa = PBXGroup;
 			children = (
+				F5D11774191E846E00CF7875 /* SHMKit.xcodeproj */,
 				F5D11745191E843700CF7875 /* FizzBuzzHypermedia */,
 				F5D11764191E843700CF7875 /* FizzBuzzHypermediaTests */,
 				F5D1173E191E843700CF7875 /* Frameworks */,
@@ -152,6 +177,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		F5D11775191E846E00CF7875 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F5D1177A191E846E00CF7875 /* libSHMKit.a */,
+				F5D1177C191E846E00CF7875 /* SHMKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -166,6 +200,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				F5D1177E191E847700CF7875 /* PBXTargetDependency */,
 			);
 			name = FizzBuzzHypermedia;
 			productName = FizzBuzzHypermedia;
@@ -216,6 +251,12 @@
 			mainGroup = F5D11733191E843700CF7875;
 			productRefGroup = F5D1173D191E843700CF7875 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = F5D11775191E846E00CF7875 /* Products */;
+					ProjectRef = F5D11774191E846E00CF7875 /* SHMKit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				F5D1173B191E843700CF7875 /* FizzBuzzHypermedia */,
@@ -223,6 +264,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		F5D1177A191E846E00CF7875 /* libSHMKit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libSHMKit.a;
+			remoteRef = F5D11779191E846E00CF7875 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F5D1177C191E846E00CF7875 /* SHMKitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SHMKitTests.xctest;
+			remoteRef = F5D1177B191E846E00CF7875 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		F5D1173A191E843700CF7875 /* Resources */ = {
@@ -271,6 +329,11 @@
 			isa = PBXTargetDependency;
 			target = F5D1173B191E843700CF7875 /* FizzBuzzHypermedia */;
 			targetProxy = F5D11762191E843700CF7875 /* PBXContainerItemProxy */;
+		};
+		F5D1177E191E847700CF7875 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SHMKit;
+			targetProxy = F5D1177D191E847700CF7875 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -380,6 +443,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FizzBuzzHypermedia/FizzBuzzHypermedia-Prefix.pch";
 				INFOPLIST_FILE = "FizzBuzzHypermedia/FizzBuzzHypermedia-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -393,6 +457,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FizzBuzzHypermedia/FizzBuzzHypermedia-Prefix.pch";
 				INFOPLIST_FILE = "FizzBuzzHypermedia/FizzBuzzHypermedia-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
