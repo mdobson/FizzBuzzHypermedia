@@ -47,10 +47,15 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="CGP-11-RJi">
+                                <rect key="frame" x="180" y="159" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="indicator" destination="CGP-11-RJi" id="kRG-jq-nqs"/>
                         <outlet property="number" destination="n9e-le-2kj" id="qbT-sb-G2q"/>
                         <outlet property="value" destination="D1W-T9-7fY" id="tsf-R5-dku"/>
                     </connections>

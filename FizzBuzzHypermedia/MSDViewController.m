@@ -25,6 +25,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.indicator startAnimating];
     self.url = @"http://fizzbuzzaas.herokuapp.com";
     self.parser = [[SHMParser alloc] initWithSirenRoot:self.url];
     [self.parser retrieveRoot:^(NSError *err, SHMEntity *entity) {
@@ -66,6 +67,7 @@
         }];
     } else {
         //Completed
+        self.indicator.hidden = YES;
         self.number.text = [NSString stringWithFormat:@"%@",entity.properties[@"number"]];
         self.value.text = entity.properties[@"value"];
     }

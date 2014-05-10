@@ -12,5 +12,6 @@
 
 @property IBOutlet UILabel *number;
 @property IBOutlet UILabel *value;
+@property IBOutlet UIActivityIndicatorView *indicator;
 
 @end
