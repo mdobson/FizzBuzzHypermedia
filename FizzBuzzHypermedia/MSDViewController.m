@@ -13,18 +13,21 @@
 
 @interface MSDViewController ()
 
-@property SHMParser *parser;
-@property NSString *url;
+@property (nonatomic, retain) SHMParser *parser;
+@property (nonatomic, retain) SHMAction *fizzbuzz;
+@property (nonatomic, retain) NSString *url;
 
 @end
 
 @implementation MSDViewController
 
-@synthesize parser, url;
+@synthesize parser, url, fizzbuzz;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.queryIndicator.hidden = YES;
+    self.fizzbuzzQuery.delegate = self;
     [self.indicator startAnimating];
     self.url = @"http://fizzbuzzaas.herokuapp.com";
     self.parser = [[SHMParser alloc] initWithSirenRoot:self.url];
@@ -43,6 +46,12 @@
                     }
                 }];
             }
+            
+            self.fizzbuzz = [entity getSirenAction:@"get-fizzbuzz-value"];
+            //Quick link patch
+            NSString *actionHref = [NSString stringWithFormat:@"%@%@", self.url, self.fizzbuzz.href];
+            self.fizzbuzz.href = actionHref;
+            self.fizzbuzzQuery.placeholder = self.fizzbuzz.title;
         }
     }];
 	// Do any additional setup after loading the view, typically from a nib.
@@ -82,6 +91,28 @@
             }
         }
     }
+}
+
+-(void)searchFizzbuzz:(id)sender {
+    self.queryIndicator.hidden = NO;
+    [self.queryIndicator startAnimating];
+    NSString * number = self.fizzbuzzQuery.text;
+    NSNumber * fizzbuzzValue = [NSNumber numberWithInt:[number integerValue]];
+    NSDictionary *params = @{@"number": fizzbuzzValue};
+    [self.fizzbuzz performActionWithFields:params andCompletion:^(NSError *error, SHMEntity *entity) {
+        if (error) {
+            NSLog(@"Error: %@!", error);
+        } else {
+            self.queryIndicator.hidden = YES;
+            self.queryNumber.text = [NSString stringWithFormat:@"%@",entity.properties[@"number"]];
+            self.queryValue.text = entity.properties[@"value"];
+        }
+    }];
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [self.fizzbuzzQuery resignFirstResponder];
+    return YES;
 }
 
 @end

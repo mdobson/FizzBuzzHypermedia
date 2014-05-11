@@ -8,10 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MSDViewController : UIViewController
+@interface MSDViewController : UIViewController<UITextFieldDelegate>
 
-@property IBOutlet UILabel *number;
-@property IBOutlet UILabel *value;
-@property IBOutlet UIActivityIndicatorView *indicator;
+@property (nonatomic, retain) IBOutlet UILabel *number;
+@property (nonatomic, retain) IBOutlet UILabel *value;
+@property (nonatomic, retain) IBOutlet UIActivityIndicatorView *indicator;
+
+@property (nonatomic, retain) IBOutlet UILabel *queryNumber;
+@property (nonatomic, retain) IBOutlet UILabel *queryValue;
+@property (nonatomic, retain) IBOutlet UIActivityIndicatorView *queryIndicator;
+
+@property (nonatomic, retain) IBOutlet UITextField *fizzbuzzQuery;
+
+-(IBAction)searchFizzbuzz:(id)sender;
 
 @end

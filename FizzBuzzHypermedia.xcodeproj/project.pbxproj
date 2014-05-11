@@ -522,6 +522,7 @@
 				F5D11770191E843700CF7875 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F5D11771191E843700CF7875 /* Build configuration list for PBXNativeTarget "FizzBuzzHypermediaTests" */ = {
 			isa = XCConfigurationList;
@@ -530,6 +531,7 @@
 				F5D11773191E843700CF7875 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
