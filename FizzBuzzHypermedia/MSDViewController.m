@@ -36,7 +36,6 @@
             NSLog(@"err:%@", err);
         } else {
             if ([entity hasLinkRel:@"first"]) {
-                [self patchLink:entity andLinkRel:@"first"];
                 [entity stepToLinkRel:@"first" withCompletion:^(NSError *error, SHMEntity *entity) {
                     if (error) {
                         NSLog(@"First step err:%@", error);
@@ -49,8 +48,6 @@
             
             self.fizzbuzz = [entity getSirenAction:@"get-fizzbuzz-value"];
             //Quick link patch
-            NSString *actionHref = [NSString stringWithFormat:@"%@%@", self.url, self.fizzbuzz.href];
-            self.fizzbuzz.href = actionHref;
             self.fizzbuzzQuery.placeholder = self.fizzbuzz.title;
         }
     }];
@@ -65,7 +62,6 @@
 
 -(void)fizzbuzz:(SHMEntity *) entity {
     if ([entity hasLinkRel:@"next"]) {
-        [self patchLink:entity andLinkRel:@"next"];
         [entity stepToLinkRel:@"next" withCompletion:^(NSError *error, SHMEntity *entity) {
             if (error) {
                 NSLog(@"Next step err:%@", error);
@@ -79,17 +75,6 @@
         self.indicator.hidden = YES;
         self.number.text = [NSString stringWithFormat:@"%@",entity.properties[@"number"]];
         self.value.text = entity.properties[@"value"];
-    }
-}
-
--(void)patchLink:(SHMEntity *)entity andLinkRel:(NSString*)linkRel{
-    for (SHMLink *link in entity.links) {
-        for (NSString *rel in link.rel) {
-            if ([rel isEqualToString:linkRel]) {
-                NSString *patchedLink = [NSString stringWithFormat:@"%@%@", self.url, link.href];
-                link.href = patchedLink;
-            }
-        }
     }
 }
 
